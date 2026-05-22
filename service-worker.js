@@ -6,6 +6,8 @@ const APP_SHELL = [
   "./script.js",
   "./manifest.json",
   "./assets/college-mark.svg",
+  "./assets/time-genius-original.jpeg",
+  "./assets/time-genius-logo.svg",
   "./icons/icon.svg",
   "./icons/maskable-icon.svg"
 ];
