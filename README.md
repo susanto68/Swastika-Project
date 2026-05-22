@@ -50,11 +50,17 @@ npx serve .
 
 1. Push this folder to a GitHub repository.
 2. Open Vercel and choose **Add New Project**.
-3. Import the GitHub repository.
+3. Import `https://github.com/susanto68/Swastika-Project`.
 4. Keep the framework preset as **Other**.
 5. Leave the build command empty.
 6. Set the output directory to `.`.
 7. Deploy.
+
+Direct import link:
+
+```text
+https://vercel.com/new/clone?repository-url=https://github.com/susanto68/Swastika-Project
+```
 
 ## Notes For Beginners
 
