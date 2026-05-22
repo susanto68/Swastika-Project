@@ -1,0 +1,19 @@
+<svg width="720" height="360" viewBox="0 0 720 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Time Genius logo">
+  <rect width="720" height="360" rx="34" fill="url(#bg)"/>
+  <g transform="translate(50 72)">
+    <path d="M132 8C74.01 8 27 55.01 27 113C27 170.99 74.01 218 132 218C176.46 218 214.45 190.37 229.79 151.36H133V128.86H260.34C252.63 194.25 197 245 132 245C58.99 245 0 186.01 0 113C0 39.99 58.99 -19 132 -19C191.03 -19 240.94 19.73 257.81 73.16H216.76C201.96 34.9 168.77 8 132 8Z" fill="#F2F3F7"/>
+    <path d="M253 128.5H132V151H244.6C248.26 143.86 251.09 136.34 253 128.5Z" fill="#F2F3F7"/>
+    <circle cx="130" cy="113" r="62" stroke="#956373" stroke-width="12" stroke-linecap="round" stroke-dasharray="142 48"/>
+    <path d="M130 111L130 28" stroke="#A86D7C" stroke-width="12" stroke-linecap="round"/>
+    <path d="M130 113L174 70" stroke="#A86D7C" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="130" cy="113" r="23" fill="#A86D7C"/>
+  </g>
+  <text x="317" y="190" fill="#F3F4F8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="54" font-weight="300" letter-spacing="9">enius</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="180" x2="720" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#02040B"/>
+      <stop offset="0.48" stop-color="#14145A"/>
+      <stop offset="1" stop-color="#3B38D8"/>
+    </linearGradient>
+  </defs>
+</svg>

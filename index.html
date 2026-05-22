@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Time Genius is a modern timetable planner for college students."
+    />
+    <meta name="theme-color" content="#2563eb" />
+    <title>Time Genius</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/maskable-icon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <path d="M8 2v4M16 2v4M3 10h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" />
+      </symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </symbol>
+      <symbol id="icon-edit" viewBox="0 0 24 24">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z" />
+      </symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24">
+        <path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15" />
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+      </symbol>
+      <symbol id="icon-print" viewBox="0 0 24 24">
+        <path d="M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2" />
+        <path d="M7 9V3h10v6M7 14h10v7H7z" />
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 14.8A8 8 0 1 1 9.2 3a6.5 6.5 0 0 0 11.8 11.8Z" />
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <path d="M12 4V2M12 22v-2M4.9 4.9 3.5 3.5M20.5 20.5l-1.4-1.4M4 12H2M22 12h-2M4.9 19.1l-1.4 1.4M20.5 3.5l-1.4 1.4" />
+        <circle cx="12" cy="12" r="4" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </symbol>
+    </svg>
+
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero__visual" aria-hidden="true">
+          <img src="assets/time-genius-logo.svg" alt="Time Genius logo" loading="lazy" />
+        </div>
+        <div class="hero__content">
+          <div class="brand-line">
+            <span class="logo-mark">TG</span>
+            <span>Time Genius</span>
+          </div>
+          <h1 id="welcomeText">Welcome, future engineer</h1>
+          <p id="studentMeta">Department, semester, section, and roll details appear here.</p>
+        </div>
+        <div class="hero__actions">
+          <button class="icon-button" id="themeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode">
+            <svg><use href="#icon-moon"></use></svg>
+          </button>
+          <button class="primary-button" id="addClassTop" type="button">
+            <svg><use href="#icon-plus"></use></svg>
+            Add Class
+          </button>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <section class="panel profile-panel" aria-labelledby="profileTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-calendar"></use></svg></span>
+            <h2 id="profileTitle">Student Profile</h2>
+          </div>
+          <form id="profileForm" class="profile-form">
+            <label>
+              Name
+              <input id="studentName" name="name" autocomplete="name" placeholder="Your name" />
+            </label>
+            <label>
+              Department
+              <input id="department" name="department" placeholder="CSE, ECE, IT" />
+            </label>
+            <label>
+              Semester
+              <input id="semester" name="semester" placeholder="5th" />
+            </label>
+            <label>
+              Section
+              <input id="section" name="section" placeholder="A" />
+            </label>
+            <label>
+              Roll Number
+              <input id="roll" name="roll" placeholder="IEM2026..." />
+            </label>
+          </form>
+        </section>
+
+        <section class="panel today-panel" aria-labelledby="todayTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-clock"></use></svg></span>
+            <h2 id="todayTitle">Today's Schedule</h2>
+          </div>
+          <div id="currentClass" class="current-card"></div>
+          <div id="todaySchedule" class="compact-list"></div>
+        </section>
+
+        <section class="panel quote-panel" aria-labelledby="quoteTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-sun"></use></svg></span>
+            <h2 id="quoteTitle">Focus Note</h2>
+          </div>
+          <p id="quoteText" class="quote-text"></p>
+          <button class="ghost-button" id="newQuote" type="button">New Quote</button>
+        </section>
+
+        <section class="panel timetable-panel" aria-labelledby="routineTitle">
+          <div class="toolbar">
+            <div class="section-title">
+              <span><svg><use href="#icon-calendar"></use></svg></span>
+              <h2 id="routineTitle">Weekly Routine</h2>
+            </div>
+            <div class="toolbar__actions">
+              <button class="ghost-button" id="aiSuggest" type="button">AI Suggestions</button>
+              <button class="ghost-button" id="downloadPng" type="button">
+                <svg><use href="#icon-download"></use></svg>
+                PNG
+              </button>
+              <button class="ghost-button" id="downloadPdf" type="button">
+                <svg><use href="#icon-download"></use></svg>
+                PDF
+              </button>
+              <button class="ghost-button" id="printRoutine" type="button">
+                <svg><use href="#icon-print"></use></svg>
+                Print
+              </button>
+            </div>
+          </div>
+          <div id="clashBanner" class="clash-banner" hidden></div>
+          <div class="schedule-scroll">
+            <div id="timetableGrid" class="timetable-grid" aria-live="polite"></div>
+          </div>
+          <div id="mobileSchedule" class="mobile-schedule" aria-live="polite"></div>
+        </section>
+
+        <section class="panel attendance-panel" aria-labelledby="attendanceTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-calendar"></use></svg></span>
+            <h2 id="attendanceTitle">Attendance</h2>
+          </div>
+          <div id="attendanceList" class="attendance-list"></div>
+        </section>
+
+        <section class="panel timer-panel" aria-labelledby="timerTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-clock"></use></svg></span>
+            <h2 id="timerTitle">Study Timer</h2>
+          </div>
+          <div class="timer-display" id="timerDisplay">25:00</div>
+          <div class="timer-actions">
+            <button class="primary-button" id="timerStart" type="button">Start</button>
+            <button class="ghost-button" id="timerReset" type="button">Reset</button>
+          </div>
+        </section>
+
+        <section class="panel reminder-panel" aria-labelledby="examTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-calendar"></use></svg></span>
+            <h2 id="examTitle">Exam Reminders</h2>
+          </div>
+          <form id="examForm" class="inline-form">
+            <input id="examTitleInput" placeholder="Subject or test" required />
+            <input id="examDateInput" type="date" required />
+            <button class="icon-button" type="submit" title="Add exam" aria-label="Add exam">
+              <svg><use href="#icon-plus"></use></svg>
+            </button>
+          </form>
+          <div id="examList" class="compact-list"></div>
+        </section>
+
+        <section class="panel reminder-panel" aria-labelledby="assignmentTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-edit"></use></svg></span>
+            <h2 id="assignmentTitle">Assignments</h2>
+          </div>
+          <form id="assignmentForm" class="inline-form">
+            <input id="assignmentTitleInput" placeholder="Task name" required />
+            <input id="assignmentDateInput" type="date" required />
+            <button class="icon-button" type="submit" title="Add assignment" aria-label="Add assignment">
+              <svg><use href="#icon-plus"></use></svg>
+            </button>
+          </form>
+          <div id="assignmentList" class="compact-list"></div>
+        </section>
+
+        <section class="panel calendar-panel" aria-labelledby="calendarTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-calendar"></use></svg></span>
+            <h2 id="calendarTitle">Calendar</h2>
+          </div>
+          <div id="miniCalendar" class="mini-calendar"></div>
+        </section>
+
+        <section class="panel analytics-panel" aria-labelledby="analyticsTitle">
+          <div class="section-title">
+            <span><svg><use href="#icon-calendar"></use></svg></span>
+            <h2 id="analyticsTitle">Study Hours</h2>
+          </div>
+          <div id="analyticsChart" class="bar-chart"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="classDialog" class="class-dialog">
+      <form id="classForm" method="dialog">
+        <div class="dialog-head">
+          <h2 id="dialogTitle">Add Class</h2>
+          <button class="icon-button" id="closeDialog" type="button" aria-label="Close">
+            <span aria-hidden="true">x</span>
+          </button>
+        </div>
+        <input type="hidden" id="entryId" />
+        <label>
+          Day
+          <select id="entryDay" required></select>
+        </label>
+        <label>
+          Time Slot
+          <select id="entrySlot" required></select>
+        </label>
+        <label>
+          Subject
+          <select id="entrySubject" required></select>
+        </label>
+        <label>
+          Custom Subject
+          <input id="customSubject" placeholder="Optional" />
+        </label>
+        <label>
+          Faculty
+          <input id="entryFaculty" placeholder="Faculty name" />
+        </label>
+        <label>
+          Room Number
+          <input id="entryRoom" placeholder="Room 402" />
+        </label>
+        <label>
+          Subject Color
+          <input id="entryColor" type="color" />
+        </label>
+        <div class="dialog-actions">
+          <button class="ghost-button" id="deleteEntry" type="button">Delete</button>
+          <button class="primary-button" id="saveEntry" type="submit">Save Class</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js" defer></script>
+  </body>
+</html>

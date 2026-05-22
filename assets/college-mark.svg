@@ -1,0 +1,17 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="College logo placeholder">
+  <rect width="240" height="240" rx="32" fill="#F8FAFC"/>
+  <rect x="22" y="22" width="196" height="196" rx="28" fill="url(#paint0_linear)"/>
+  <path d="M120 46L190 82L120 118L50 82L120 46Z" fill="white" fill-opacity="0.94"/>
+  <path d="M74 100V137C74 152 95 168 120 168C145 168 166 152 166 137V100L120 124L74 100Z" fill="white" fill-opacity="0.82"/>
+  <path d="M190 82V139" stroke="white" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="190" cy="154" r="13" fill="#F97316"/>
+  <rect x="68" y="180" width="104" height="18" rx="9" fill="white" fill-opacity="0.9"/>
+  <path d="M88 188H152" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="38" y1="36" x2="208" y2="214" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="0.48" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+</svg>
